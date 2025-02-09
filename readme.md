@@ -16,3 +16,5 @@
 ## ℹ️ About
 
 This repository contains my solutions to Leetcode problems. I use Python and TypeScript to solve the problems. I also use the leetcode extension in VSCode to test my solutions.
+
+You can also see my profile on my [leetcode profile](https://leetcode.com/nderousseaux/).
