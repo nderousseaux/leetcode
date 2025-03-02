@@ -6,7 +6,7 @@
 	<img src="https://avatars.githubusercontent.com/u/41718343?s=200&v=4" alt="Logo of leetcode" width="150"" />
 </p>
 
-# <div align="center">My resume</div>
+# <div align="center">Leetcode</div>
 <div align="center">
 	<samp>My solutions to Leetcode problems</samp>
 </div>
