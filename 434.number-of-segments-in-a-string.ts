@@ -6,8 +6,10 @@
 
 // @lc code=start
 function countSegments(s: string): number {
-		// Split the string by spaces and filter out empty strings
-		return s.split(' ').filter(segment => segment.length > 0).length;
+		// Split the string by spaces and filter out empty segments
+		const segments = s.split(' ').filter(segment => segment.length > 0);
+		// Return the count of non-empty segments
+		return segments.length;
 };
 // @lc code=end
 
