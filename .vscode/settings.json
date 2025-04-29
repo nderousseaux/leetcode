@@ -8,7 +8,7 @@
 		"java": true,
 		"c": true,
 		"yacc": true,
-		"python": true,
+		"python": false,
 		"dockerfile": true
 	}
 }
