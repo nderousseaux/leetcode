@@ -1,14 +1,7 @@
 {
 	"github.copilot.enable": {
-		"*": false,
-		"plaintext": true,
-		"markdown": true,
-		"scminput": false,
-		"yaml": true,
-		"java": true,
-		"c": true,
-		"yacc": true,
+		"*": true,
 		"python": false,
-		"dockerfile": true
+		"typescript": false
 	}
 }
