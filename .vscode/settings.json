@@ -2,6 +2,7 @@
 	"github.copilot.enable": {
 		"*": true,
 		"python": false,
-		"typescript": false
+		"typescript": false,
+		"sql": false,
 	}
 }
