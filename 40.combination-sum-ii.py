@@ -1,13 +1,14 @@
 #
-# @lc app=leetcode id=39 lang=python3
+# @lc app=leetcode id=40 lang=python3
 #
-# [39] Combination Sum
+# [40] Combination Sum II
 #
 
 # @lc code=start
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
         res = [[c] for c in candidates if c == target]
+        res = list(map(list, {tuple(sorted(r)) for r in res}))
         combs = [[c] for c in candidates if c < target]
         
         while len(combs) > 0:
@@ -17,7 +18,7 @@ class Solution:
             for comb in combs:
                 
                 # For each element we can append
-                for e in candidates:
+                for e in [x for x in candidates if comb.count(x) < candidates.count(x)]:
                     new_comb = sorted(comb + [e])
 
                     # If his sum is still lower than target, we keep it for the next loop
@@ -31,5 +32,6 @@ class Solution:
             combs = tmp
 
         return res
+        
 # @lc code=end
 
