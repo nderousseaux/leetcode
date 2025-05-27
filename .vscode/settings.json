@@ -3,5 +3,6 @@
 		"*": true,
 		"python": false,
 		"typescript": false,
+		"sql": false,
 	}
 }
