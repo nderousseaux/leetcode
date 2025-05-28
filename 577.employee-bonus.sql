@@ -5,7 +5,7 @@
 --
 
 -- @lc code=start
--- Write your MySQL query statement below
+-- Write your PostgreSQL query statement below
 SELECT e.name, b.bonus
 FROM Employee as e
 LEFT JOIN Bonus as b ON e.empId = b.empId
