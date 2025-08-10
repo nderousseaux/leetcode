@@ -1,0 +1,33 @@
+#
+# @lc app=leetcode id=925 lang=python3
+#
+# [925] Long Pressed Name
+#
+
+# @lc code=start
+class Solution:
+    def isLongPressedName(self, name: str, typed: str) -> bool:
+        i = j = 0
+        
+        while i < len(name) and j < len(typed):
+            if name[i] == typed[j]:
+                i += 1
+                j += 1
+            elif j > 0 and typed[j] == typed[j-1]:
+                j += 1
+            else:
+                return False
+        
+        # Check if we've consumed all characters in name
+        if i < len(name):
+            return False
+        
+        # Check remaining characters in typed are repetitions
+        while j < len(typed):
+            if typed[j] != typed[j-1]:
+                return False
+            j += 1
+        
+        return True
+        
+# @lc code=end
