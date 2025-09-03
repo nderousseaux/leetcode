@@ -1,0 +1,29 @@
+/*
+ * @lc app=leetcode id=1071 lang=typescript
+ *
+ * [1071] Greatest Common Divisor of Strings
+ */
+
+// @lc code=start
+function gcdOfStrings(str1: string, str2: string): string {
+    // Test if a divide b
+    function divide(a, b): boolean {
+        if (b.length % a.length !== 0) return false;
+        return b === a.repeat(b.length / a.length);
+    }
+
+    let res: string = str1
+    
+    while (res.length > 0) {
+        // if res divide str2 AND str1 -> return
+        if (divide(res, str1) && divide(res, str2))
+            return res;
+        
+        // Take the next letter
+        res = res.substring(0,res.length-1);
+    }
+    
+    return "";
+};
+// @lc code=end
+
