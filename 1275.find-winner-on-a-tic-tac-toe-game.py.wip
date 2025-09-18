@@ -1,0 +1,47 @@
+#
+# @lc app=leetcode id=1275 lang=python3
+#
+# [1275] Find Winner on a Tic Tac Toe Game
+#
+
+# @lc code=start
+class Solution:
+    def tictactoe(self, moves: List[List[int]]) -> str:
+        # Build board
+        board: List[List[str]] = [["" for _ in range (3)] for _ in range(3)]
+        p = "A"
+        for m in moves:
+            board[m[0]][m[1]] = p
+            p = "B" if p == "A" else "A"
+
+
+        # Test if there is a winner vertically
+        for x in range(3):
+            if (
+                (board[x][0] == board[x][1] and board[x][1] == board[x][2]) and 
+                (board[x][0] in ["A", "B"])
+            ):
+                return board[x][0]
+        
+        # Test if there is a winner horizontally
+        for y in range(3):
+            if (
+                (board[0][y] == board[1][y] and board[1][y] == board[2][y]) and
+                (board[0][y] in ["A", "B"])
+            ):
+                return board[0][y]
+        
+        # Test if there is a winner diagonally
+        if (
+            (
+                (board[0][0] == board[1][1] and board[1][1] == board[2][2]) or
+                (board[2][0] == board[1][1] and board[1][1] == board[0][2])
+            ) and
+            (board[1][1] in ["A", "B"])
+        ):
+            return board[1][1]
+        
+        return "Draw" if len(moves) >= 9 else "Pending"
+        
+# @lc code=end
+
