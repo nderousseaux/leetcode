@@ -1,0 +1,12 @@
+/*
+ * @lc app=leetcode id=1523 lang=typescript
+ *
+ * [1523] Count Odd Numbers in an Interval Range
+ */
+
+// @lc code=start
+function countOdds(low: number, high: number): number {
+    return (low % 2 === 1) ? Math.floor((high - low) / 2) + 1 : Math.round((high - low) / 2);
+};
+// @lc code=end
+
