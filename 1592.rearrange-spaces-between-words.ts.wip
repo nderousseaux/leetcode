@@ -1,0 +1,20 @@
+/*
+ * @lc app=leetcode id=1592 lang=typescript
+ *
+ * [1592] Rearrange Spaces Between Words
+ */
+
+// @lc code=start
+function reorderSpaces(text: string): string {
+    let nbSpace = text.split("").filter(x => x === ' ').length;
+    let words = text.trim().split(/\s+/);
+    if (words.length === 1) {
+        // All spaces go to the end if only one word
+        return words[0] + " ".repeat(nbSpace);
+    }
+    let spacesBetween = Math.floor(nbSpace / (words.length - 1));
+    let spacesEnd = nbSpace % (words.length - 1);
+    return words.join(" ".repeat(spacesBetween)) + " ".repeat(spacesEnd);
+};
+// @lc code=end
+
