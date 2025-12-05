@@ -1,0 +1,19 @@
+/*
+ * @lc app=leetcode id=1784 lang=typescript
+ *
+ * [1784] Check if Binary String Has at Most One Segment of Ones
+ */
+
+// @lc code=start
+function checkOnesSegment(s: string): boolean {
+    let detect0 = false;
+
+    for(let i = 0; i < s.length; i++) {
+        if (s[i] == "0") detect0 = true
+        if (s[i] == "1" && detect0) return false;
+    }
+
+    return true;
+};
+// @lc code=end
+
