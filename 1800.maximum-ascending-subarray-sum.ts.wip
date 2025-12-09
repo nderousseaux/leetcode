@@ -1,0 +1,27 @@
+/*
+ * @lc app=leetcode id=1800 lang=typescript
+ *
+ * [1800] Maximum Ascending Subarray Sum
+ */
+
+// @lc code=start
+function maxAscendingSum(nums: number[]): number {
+    let maxSum: number = 0;
+    let curSum: number = 0;
+    let lasDig: number = -1;
+
+    for (let n of nums) {
+        // If that's strictly increasing, increase the sum 
+        if (lasDig < n) curSum += n
+        else { // Else, reset
+            maxSum = Math.max(maxSum, curSum);
+            curSum = n;
+        }
+        lasDig = n;
+    }
+
+    return Math.max(maxSum, curSum);
+    
+};
+// @lc code=end
+
