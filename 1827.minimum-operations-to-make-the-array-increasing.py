@@ -24,9 +24,5 @@ class Solution:
                 prev = n
         
         return res
-
-        
-        return res
-
 # @lc code=end
 
