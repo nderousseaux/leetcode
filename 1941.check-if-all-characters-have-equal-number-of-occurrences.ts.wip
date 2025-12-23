@@ -1,0 +1,20 @@
+/*
+ * @lc app=leetcode id=1941 lang=typescript
+ *
+ * [1941] Check if All Characters Have Equal Number of Occurrences
+ */
+
+// @lc code=start
+function areOccurrencesEqual(s: string): boolean {
+    let res: {[key: string]: number} = {}
+    for(let c of s.split("")) {
+        if(!(c in res))
+            res[c] = 0;
+        res[c]++;
+    }
+
+    // if all number is equal
+    return new Set(Object.values(res)).size == 1;
+};
+// @lc code=end
+
