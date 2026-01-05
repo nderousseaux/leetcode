@@ -1,0 +1,24 @@
+#
+# @lc app=leetcode id=2042 lang=python3
+#
+# [2042] Check if Numbers Are Ascending in a Sentence
+#
+
+# @lc code=start
+class Solution:
+    def areNumbersAscending(self, s: str) -> bool:
+        last = -1
+        # Keep only number
+        for w in s.split(" "):
+            try:
+                n = int(w)
+                if n <= last:
+                    return False
+                last = n
+            except:
+                pass
+        
+        return True
+        
+# @lc code=end
+
