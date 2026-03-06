@@ -8,9 +8,8 @@
 function smallestEvenMultiple(n: number): number {
     let i: number = n;
     while (true) {
-        if (i % 2 == 0 && i % n == 0) return i;        
+        if (i % 2 == 0 && i % n == 0) return i;
         i++;
     }
 };
 // @lc code=end
-
