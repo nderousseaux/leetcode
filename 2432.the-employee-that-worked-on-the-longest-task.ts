@@ -5,20 +5,27 @@
  */
 
 // @lc code=start
-function hardestWorker(n: number, logs: number[][]): number {
-  let maxTime = 0;
-  let maxEmployee = 0;
-  let prevTime = 0;
 
-  for (let [employee, time] of logs) {
-    const duration = time - prevTime;
-    if (duration > maxTime) {
-      maxTime = duration;
-      maxEmployee = employee;
+function hardestWorker(n: number, logs: number[][]): number {
+  let maxDuration = 0;
+  let employeeId = Number.MAX_VALUE;
+  let previousEndTime = 0;
+
+  for (let i = 0; i < logs.length; i++) {
+    const id = logs[i][0];
+    const leaveTime = logs[i][1];
+    const duration = leaveTime - previousEndTime;
+
+    if (duration > maxDuration) {
+      maxDuration = duration;
+      employeeId = id;
+    } else if (duration === maxDuration && id < employeeId) {
+      employeeId = id;
     }
-    prevTime = time;
+
+    previousEndTime = leaveTime;
   }
 
-  return maxEmployee;
-};
+  return employeeId;
+}
 // @lc code=end
