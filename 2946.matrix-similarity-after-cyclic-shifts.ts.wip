@@ -1,0 +1,29 @@
+/*
+ * @lc app=leetcode id=2946 lang=typescript
+ *
+ * [2946] Matrix Similarity After Cyclic Shifts
+ */
+
+// @lc code=start
+function areSimilar(mat: number[][], k: number): boolean {
+  const n = mat.length;
+  const m = mat[0].length;
+  const rem = k % m;
+
+  // Nothing to do
+  if (rem == 0) return true;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m; j++) {
+      let idx: number;
+      if (i % 2 == 0)
+        idx = j - rem < 0 ? m + (j - rem) : j - rem;
+      else
+        idx = j + rem >= m ? j + rem - m : j + rem;
+      if (mat[i][j] != mat[i][idx]) return false;
+    }
+  }
+
+  return true;
+};
+// @lc code=end
