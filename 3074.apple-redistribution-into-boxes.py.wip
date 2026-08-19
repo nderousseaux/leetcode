@@ -1,0 +1,19 @@
+#
+# @lc app=leetcode id=3074 lang=python3
+#
+# [3074] Apple Redistribution into Boxes
+#
+
+# @lc code=start
+class Solution:
+    def minimumBoxes(self, apple: List[int], capacity: List[int]) -> int:
+        nbApple: int = sum(apple)
+        res: int = 0
+        capacity.sort(reverse=True)
+        while nbApple > 0:
+            nbApple -= capacity[res]
+            res+=1
+        return res
+
+
+# @lc code=end
