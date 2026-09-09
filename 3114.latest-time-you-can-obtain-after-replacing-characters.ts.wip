@@ -1,0 +1,30 @@
+/*
+ * @lc app=leetcode id=3114 lang=typescript
+ *
+ * [3114] Latest Time You Can Obtain After Replacing Characters
+ */
+
+// @lc code=start
+function findLatestTime(s: string): string {
+  function replaceAt(str: string, idx: number, rep: string): string {
+    return str.substring(0, idx) + rep + str.substring(idx + rep.length);
+  }
+  if (s.charAt(0) == "?") {
+    if (s.charAt(1) == "1" || s.charAt(1) == "0" || s.charAt(1) == "?")
+      s = replaceAt(s, 0, '1')
+    else
+      s = replaceAt(s, 0, '0')
+  }
+  if (s.charAt(1) == "?") {
+    if (s.charAt(0) == "1")
+      s = replaceAt(s, 1, '1')
+    else
+      s = replaceAt(s, 1, '9')
+  }
+  if (s.charAt(3) == "?")
+    s = replaceAt(s, 3, '5')
+  if (s.charAt(4) == "?")
+    s = replaceAt(s, 4, '9')
+  return s;
+};
+// @lc code=end
