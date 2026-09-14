@@ -1,0 +1,14 @@
+#
+# @lc app=leetcode id=3146 lang=python3
+#
+# [3146] Permutation Difference between Two Strings
+#
+
+# @lc code=start
+class Solution:
+    def findPermutationDifference(self, s: str, t: str) -> int:
+        res: int = 0
+        for idx, char in enumerate(s):
+            res += abs(idx - t.index(char))
+        return res
+# @lc code=end
