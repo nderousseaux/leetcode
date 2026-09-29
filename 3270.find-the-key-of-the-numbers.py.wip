@@ -1,0 +1,18 @@
+#
+# @lc app=leetcode id=3270 lang=python3
+#
+# [3270] Find the Key of the Numbers
+#
+
+# @lc code=start
+class Solution:
+    def generateKey(self, num1: int, num2: int, num3: int) -> int:
+        res: str = ""
+        n1: str = str(num1).zfill(4)
+        n2: str = str(num2).zfill(4)
+        n3: str = str(num3).zfill(4)
+        for i in range(4):
+            res+= min(n1[i], n2[i], n3[i])
+
+        return int(res)
+# @lc code=end
