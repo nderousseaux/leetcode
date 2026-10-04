@@ -1,0 +1,22 @@
+#
+# @lc app=leetcode id=3318 lang=python3
+#
+# [3318] Find X-Sum of All K-Long Subarrays I
+#
+
+# @lc code=start
+class Solution:
+    def findXSum(self, nums: List[int], k: int, x: int) -> List[int]:
+
+        def xSum(n: List[int], x:int) -> int:
+            dic: dict[int, int] = {}
+
+            for v in n:
+                dic[v] = dic.get(v, 0) + 1
+
+            res: List[List[int]] = sorted(dic.items(), key=lambda b: (b[1], b[0]), reverse=True)
+
+            return sum(k * v for k, v in res[:x])
+
+        return [xSum(nums[i:i+k], x) for i in range(len(nums)-k+1)]
+# @lc code=end
