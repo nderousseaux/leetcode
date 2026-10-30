@@ -1,0 +1,18 @@
+#
+# @lc app=leetcode id=3471 lang=python3
+#
+# [3471] Find the Largest Almost Missing Integer
+#
+
+# @lc code=start
+class Solution:
+    def largestInteger(self, nums: List[int], k: int) -> int:
+        freq = {}
+        for i in range(len(nums) - k + 1):
+            for jdx, e in enumerate(set(nums[i:i+k])):
+                freq[e] = freq.get(e, 0) + 1
+
+        # Order index by value (dec) then index (inc)
+        v = sorted(freq.items(), key=lambda x: (x[1],-x[0]))
+        return v[0][0] if v[0][1] == 1 else -1
+# @lc code=end
