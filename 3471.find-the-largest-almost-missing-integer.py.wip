@@ -9,7 +9,7 @@ class Solution:
     def largestInteger(self, nums: List[int], k: int) -> int:
         freq = {}
         for i in range(len(nums) - k + 1):
-            for jdx, e in enumerate(set(nums[i:i+k])):
+            for e in set(nums[i:i+k]):
                 freq[e] = freq.get(e, 0) + 1
 
         # Order index by value (dec) then index (inc)
