@@ -1,0 +1,26 @@
+#
+# @lc app=leetcode id=3507 lang=python3
+#
+# [3507] Minimum Pair Removal to Sort Array I
+#
+
+# @lc code=start
+class Solution:
+    def minimumPairRemoval(self, nums: List[int]) -> int:
+        res: int = 0
+
+        while len([1 for i in range(len(nums)-1) if nums[i]>nums[i+1]]) > 0:
+            # Search the minimum pair
+            minVal = nums[0] + nums[1]
+            minIdx = 0 # Pair -> minIdx, minIdx+1
+            for i in range(1, len(nums)-1):
+                if (nums[i]+nums[i+1] < minVal):
+                    minVal = nums[i]+nums[i+1]
+                    minIdx = i
+
+            # Replace pair with sum
+            nums[minIdx] = minVal
+            del nums[minIdx+1]
+            res += 1
+        return res
+# @lc code=end
