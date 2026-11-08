@@ -1,0 +1,19 @@
+#
+# @lc app=leetcode id=3541 lang=python3
+#
+# [3541] Find Most Frequent Vowel and Consonant
+#
+
+# @lc code=start
+class Solution:
+    def maxFreqSum(self, s: str) -> int:
+        vowels: List[str] = ["a", "e", "i", "o", "u"]
+        d: dict[str, int] = {}
+
+        for l in s:
+            d[l] = d.get(l, 0) + 1
+
+        vowelsFrequencies = [v for i,v in d.items() if i in vowels]
+        consoFrequencies = [v for i,v in d.items() if i not in vowels]
+        return max(vowelsFrequencies, default=0) + max(consoFrequencies, default=0)
+# @lc code=end
