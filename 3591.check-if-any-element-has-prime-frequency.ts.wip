@@ -1,0 +1,30 @@
+/*
+ * @lc app=leetcode id=3591 lang=typescript
+ *
+ * [3591] Check if Any Element Has Prime Frequency
+ */
+
+// @lc code=start
+function checkPrimeFrequency(nums: number[]): boolean {
+
+  function isPrime(n: number): boolean {
+    if (n < 2) return false;
+    if (n % 2 == 0) return (n == 2);
+    let root = Math.sqrt(n);
+    for (let i = 3; i <= root; i += 2) {
+      if (root % i == 0) return false;
+    }
+    return true;
+  }
+
+  let freq = new Map();
+  for (let n of nums)
+    freq.set(n, (freq.get(n) ?? 0) + 1);
+
+  for (let f of freq.values()) {
+    if (isPrime(f))
+      return true;
+  }
+  return false;
+};
+// @lc code=end
