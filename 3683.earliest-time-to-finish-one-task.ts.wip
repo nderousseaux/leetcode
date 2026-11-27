@@ -1,0 +1,11 @@
+/*
+ * @lc app=leetcode id=3683 lang=typescript
+ *
+ * [3683] Earliest Time to Finish One Task
+ */
+
+// @lc code=start
+function earliestTime(tasks: number[][]): number {
+  return Math.min(...tasks.map(v => v[0] + v[1]));
+};
+// @lc code=end
